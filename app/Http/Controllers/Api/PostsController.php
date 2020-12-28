@@ -7,7 +7,6 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class PostsController extends Controller
 {
@@ -29,9 +28,8 @@ class PostsController extends Controller
         if ($post->resource) {
             // return response($post, 200);
             return $this->succesResponse($post);
-        } else {
-            // return 'aaaaaaaaaaaa';
 
+        } else {
             return $this->notFoundResponse();
         }
     }
@@ -117,6 +115,7 @@ class PostsController extends Controller
         ]);
     }
 
+    //retrun response as a post Resource
     public function succesResponse($post)
     {
         return $this->apiResponse(new PostResource($post));

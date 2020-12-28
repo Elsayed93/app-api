@@ -23,8 +23,8 @@ trait ApiResponseTrait
     {
         $array = [
             'data' => $data,
-            'status' => in_array($code, $this->successCode()) ? true : false,
-            'message' => $error
+            'message' => $error,
+            'status' => in_array($code, $this->successCode()) ? true : false
         ];
         return response($array, $code);
     }
